@@ -4,9 +4,10 @@ adds commit_callback to ActiveRecord::Base, usually you'll want to call it from 
 	
 For Example:
 
-	after_save do |thing|
-	  thing.commit_callback do
-		  thing.send_to_backgound_processor
+	after_save :send_some_message
+	def send_some_message
+	  this.commit_callback do
+		  #do the real message sending now that we're sure self has been committed to the DB
 	  end
 	end
 
@@ -15,11 +16,11 @@ For Example:
 	
 if your tests 
 
-	"use_transactional_fixtures = true"
+	use_transactional_fixtures = true
 
 then you might find it useful to put this in your setup 
 		
-		CommitCallback.adapt_for_transactional_test!(ActiveRecord::Base.connection)
+	CommitCallback.adapt_for_transactional_test!(ActiveRecord::Base.connection)
 	
 	
 	
