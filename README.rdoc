@@ -6,7 +6,7 @@ For Example:
 
 	after_save :send_some_message
 	def send_some_message
-	  this.commit_callback do
+	  self.commit_callback do
 		  #do the real message sending now that we're sure self has been committed to the DB
 	  end
 	end
