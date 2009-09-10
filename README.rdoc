@@ -1,0 +1,24 @@
+= CommitCallback
+	add commit_callback to ActiveRecord::Base, usually you'll want to call it from an after_save hook.
+	
+For Example:
+
+	after_save do |thing|
+	  thing.commit_callback do
+		  thing.send_to_backgound_processor
+	  end
+	end
+
+
+= For test:
+	
+	if your tests "use_transactional_fixtures = true"
+	then you might find it useful to put this in your setup 
+		
+		CommitCallback.adapt_for_transactional_test!(ActiveRecord::Base.connection)
+	
+	
+	
+Copyright (c) 2009 Brontes Technologies Inc., a 3M company, released under the MIT license.
+
+Authored by Jacob Burkhart.
