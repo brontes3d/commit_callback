@@ -24,6 +24,6 @@ then you might find it useful to put this in your setup
 	
 	
 	
-Copyright (c) 2009 Brontes Technologies Inc., a 3M company, released under the MIT license.
+Copyright (c) 2009 3M. All rights reserved. Released under the MIT license.
 
 Authored by Jacob Burkhart.
